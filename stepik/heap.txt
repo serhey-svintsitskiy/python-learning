@@ -1,0 +1,146 @@
+services:
+    jimbo.session:
+        synthetic: true
+        public: true
+        class: Spot2D\Libs\Session
+
+    Spot2D\JimboBundle\Libs\CustomHandlerFactory:
+        arguments: [ '@service_container', 'spot2r' ]
+
+    spot2r.jimbo.table_handler:
+        class: Spot2R\JimboBundle\Libs\TableHandler
+        shared: false
+        abstract: true
+        public: true
+        arguments:
+            - '@spot2r.session'
+            - '@db_decorator'
+            - '@spot2d.serviceContainer'
+            - '@ddc_perms'
+            - '@site_config'
+            - '@jimbo.session'
+
+    spot2r.jimbo.table_handler.users:
+        class: Spot2R\JimboBundle\JimboResources\tableActions\Users
+        parent: spot2r.jimbo.table_handler
+
+    spot2r.jimbo.table_handler.visit_skip_reasons:
+        class: Spot2R\JimboBundle\JimboResources\tableActions\VisitSkipReasons
+        parent: spot2r.jimbo.table_handler
+
+    spot2r.jimbo.table_handler.user_profile:
+        class: Spot2R\JimboBundle\JimboResources\tableActions\UserProfile
+        parent: spot2r.jimbo.table_handler
+
+    spot2r.jimbo.table_handler.tt_workers_rel:
+        class: Spot2R\JimboBundle\JimboResources\tableActions\TTWorkersRel
+        parent: spot2r.jimbo.table_handler
+
+    spot2r.jimbo.table_handler.shops_filter:
+        class: Spot2R\JimboBundle\JimboResources\tableActions\ShopsFilter
+        parent: spot2r.jimbo.table_handler
+
+    spot2r.jimbo.table_handler.juniors:
+        class: Spot2R\JimboBundle\JimboResources\tableActions\Juniors
+        parent: spot2r.jimbo.table_handler
+
+    spot2r.jimbo.table_handler.routes:
+        class: Spot2R\JimboBundle\JimboResources\tableActions\Routes
+        parent: spot2r.jimbo.table_handler
+
+    spot2r.jimbo.table_handler.reports_templates:
+        class: Spot2R\JimboBundle\JimboResources\tableActions\ReportsTemplates
+        parent: spot2r.jimbo.table_handler
+
+    spot2r.jimbo.table_handler.promotions:
+        class: Spot2R\JimboBundle\JimboResources\tableActions\Promotions
+        parent: spot2r.jimbo.table_handler
+
+    spot2r.jimbo.table_handler.promotion_products:
+        class: Spot2R\JimboBundle\JimboResources\tableActions\PromotionProducts
+        parent: spot2r.jimbo.table_handler
+
+    spot2r.jimbo.table_handler.promotion_bonus_products:
+        class: Spot2R\JimboBundle\JimboResources\tableActions\PromotionBonusProducts
+        parent: spot2r.jimbo.table_handler
+
+    spot2r.jimbo.table_handler.other_works:
+        class: Spot2R\JimboBundle\JimboResources\tableActions\OtherWorks
+        parent: spot2r.jimbo.table_handler
+
+    spot2r.jimbo.table_handler.orders:
+        class: Spot2R\JimboBundle\JimboResources\tableActions\Orders
+        parent: spot2r.jimbo.table_handler
+
+    spot2r.jimbo.table_handler.order_skip_reasons:
+        class: Spot2R\JimboBundle\JimboResources\tableActions\OrderSkipReasons
+        parent: spot2r.jimbo.table_handler
+
+    spot2r.jimbo.table_handler.module_sets:
+        class: Spot2R\JimboBundle\JimboResources\tableActions\ModuleSets
+        parent: spot2r.jimbo.table_handler
+
+    spot2r.jimbo.table_handler.lite_attributes:
+        class: Spot2R\JimboBundle\JimboResources\tableActions\LiteAttributes
+        parent: spot2r.jimbo.table_handler
+
+    spot2r.jimbo.table_handler.import_log:
+        class: Spot2R\JimboBundle\JimboResources\tableActions\ImportLog
+        parent: spot2r.jimbo.table_handler
+
+    spot2r.jimbo.table_handler.extra_fields:
+        class: Spot2R\JimboBundle\JimboResources\tableActions\ExtraFields
+        parent: spot2r.jimbo.table_handler
+
+    spot2r.jimbo.table_handler.extra_field_value_list:
+        class: Spot2R\JimboBundle\JimboResources\tableActions\ExtraFieldValueList
+        parent: spot2r.jimbo.table_handler
+
+    spot2r.jimbo.table_handler.export_log:
+        class: Spot2R\JimboBundle\JimboResources\tableActions\ExportLog
+        parent: spot2r.jimbo.table_handler
+
+    spot2r.jimbo.table_handler.export_files:
+        class: Spot2R\JimboBundle\JimboResources\tableActions\ExportFiles
+        parent: spot2r.jimbo.table_handler
+
+    spot2r.jimbo.table_handler.custom_forms:
+        class: Spot2R\JimboBundle\JimboResources\tableActions\CustomForms
+        parent: spot2r.jimbo.table_handler
+
+    spot2r.jimbo.table_handler.custom_form_subgroups2fields:
+        class: Spot2R\JimboBundle\JimboResources\tableActions\CustomFormSubgroups2Fields
+        parent: spot2r.jimbo.table_handler
+
+    spot2r.jimbo.table_handler.custom_form_subgroups:
+        class: Spot2R\JimboBundle\JimboResources\tableActions\CustomFormSubgroups
+        parent: spot2r.jimbo.table_handler
+
+    spot2r.jimbo.table_handler.custom_form_sku_params:
+        class: Spot2R\JimboBundle\JimboResources\tableActions\CustomFormSkuParams
+        parent: spot2r.jimbo.table_handler
+
+    spot2r.jimbo.table_handler.custom_form_param_subgroups:
+        class: Spot2R\JimboBundle\JimboResources\tableActions\CustomFormParamSubgroups
+        parent: spot2r.jimbo.table_handler
+
+    spot2r.jimbo.table_handler.custom_form_param_groups:
+        class: Spot2R\JimboBundle\JimboResources\tableActions\CustomFormParamGroups
+        parent: spot2r.jimbo.table_handler
+
+    spot2r.jimbo.table_handler.custom_form_other_params:
+        class: Spot2R\JimboBundle\JimboResources\tableActions\CustomFormOtherParams
+        parent: spot2r.jimbo.table_handler
+
+    spot2r.jimbo.table_handler.custom_form_fields:
+        class: Spot2R\JimboBundle\JimboResources\tableActions\CustomFormFields
+        parent: spot2r.jimbo.table_handler
+
+    spot2r.jimbo.table_handler.accessories:
+        class: Spot2R\JimboBundle\JimboResources\tableActions\Accessories
+        parent: spot2r.jimbo.table_handler
+
+    spot2r.jimbo.table_handler.product_top_groups:
+        class: Spot2R\JimboBundle\JimboResources\tableActions\ProductTopGroups
+        parent: spot2r.jimbo.table_handler
+
